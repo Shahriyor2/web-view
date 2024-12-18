@@ -5,25 +5,25 @@
     <title>Сервис привязки карт корти милли от МДО "Хумо"</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/css/main.min.css?ver=1.2" rel="stylesheet" media="screen">
-    <script src="/js/libs/jquery-2.0.0.min.js"></script>
+    <link href="assets/css/main.min.css?ver=1.2" rel="stylesheet" media="screen">
+    <script src="assets/js/libs/jquery-2.0.0.min.js"></script>
     <!--// <script src="js/interface2711.min.js">&nbsp;</script>-->
-    <script src="/js/libs/inputmask.js"></script>
-    <script src="/js/libs/jquery.inputmask.js"></script>
-    <script src="/js/index.js?ver=1.2"></script>
+    <script src="assets/js/libs/inputmask.js"></script>
+    <script src="assets/js/libs/jquery.inputmask.js"></script>
+    <script src="assets/js/index.js?ver=1.2"></script>
 
     <style>
         @font-face {
             font-family: GT-Walsheim-Black;
-            src: url("/css/GT-Walsheim-Black.otf") format("opentype");
+            src: url("assets/css/GT-Walsheim-Black.otf") format("opentype");
         }
         @font-face {
             font-family: GT-Walsheim-Bold;
-            src: url("/css/GT-Walsheim-Bold.otf") format("opentype");
+            src: url("assets/css/GT-Walsheim-Bold.otf") format("opentype");
         }
         @font-face {
             font-family: GT-Walsheim-Regular;
-            src: url("/css/GT-Walsheim-Regular.otf") format("opentype");
+            src: url("assets/css/GT-Walsheim-Regular.otf") format("opentype");
         }
 
         .font-black {
@@ -64,7 +64,7 @@
                                 <div class="column form-column-third" id="attached">
                                     <fieldset class="form-in custom-style2">
                                         <div>
-                                            <img class="success-image" src="/img/like.png">
+                                            <img class="success-image" src="assets/img/like.png">
                                             <div class="h4 font-bold success-text" >Карта<br>добавлена</div>
                                         </div>
                                     </fieldset>
@@ -75,7 +75,7 @@
                                         <div class="column form-column-left">
                                             <div  style="z-index: 300;" class="form-in" id="card_form">
                                                 <span id="error_span" style="display: none; position: absolute; width: 80%; color: red;"></span>
-                                                <img src="/img/Humo Visa.svg" alt="Humo Visa" class="b-card__front-kort">
+                                                <img src="assets/img/kort-logo.png" alt="bank_logo" class="b-card__front-kort">
                                                 <div class="form-group group-1">
                                                     <label class="control-label">
                                                         <span id="sender_init_message" class="panNumber">Введите номер карты</span>
@@ -116,7 +116,7 @@
                                                     <input type="button" onclick="verify()" id="send_data" name="send_data" value="Отправить" class="btn btn-brand btn-block right">
                                                 </div>
                                                 <div class="cvv-input sms-code pull-right " >
-                                                    <input type="password" id="otp" name="otp" placeholder="СМС код" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="6" onfocus="this.type='password'" autocomplete="off">
+                                                    <input type="password" id="otp" name="otp" placeholder="СМС код" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="5" onfocus="this.type='password'" autocomplete="off">
                                                 </div>
                                                 <div class="pull-right">
                                                     <span onclick="sendSMSOTP()" id="resend_otp" style="display: none; cursor:pointer; text-decoration: underline; color:#04599D">Переотправить смс</span>
@@ -124,7 +124,7 @@
                                                 <div style="clear: both;"></div>
                                                 <div style="margin:0px -25px 0px -10px">
                                                     <div align="center" style="margin-bottom: 10px; margin-top: 10px" width="100%">
-                                                        <small >Принимаются карты VISA HUMO </small>
+                                                        <small >Принимаются карты НПЦ "Корти милли" выпущенные в РТ</small>
                                                     </div>
                                                     <!--margin:10px -50px 0px -30px-->
                                                     <div align="center" width="100%" >
@@ -165,7 +165,7 @@
                                         <p style="font-size: 14px">Центр поддержки пользователей: 544 <br>www.humo.tj    |    office@humo.tj</p>
                                     </div>
                                     <div align="center" style="margin-top: 20px" class="footer_logo">
-                                        <img src="/img/humo_logo_white.png">
+                                        <img src="assets/img/humo_logo_white.png">
                                     </div>
 
                                 </div>
