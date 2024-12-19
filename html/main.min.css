@@ -3846,8 +3846,7 @@ strong {
   }
 
   .control-label {
-    /* font-size: 1.336rem; */
-    font-size: 21.376px;
+    font-size: 1.336rem;
   }
 }
 @media (min-width: 0px) and (max-width: 269px) {
