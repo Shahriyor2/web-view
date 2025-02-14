@@ -1,0 +1,254 @@
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  color: #333;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: rgba(0, 184, 86);
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.app-container {
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Paper */
+.paper-elevation-0,
+.paper-elevation-1,
+.paper-elevation-2 {
+  background: #fff;
+  border-radius: 3px;
+  padding: 16px;
+}
+
+.paper-elevation-0 {
+  box-shadow: none;
+}
+
+.paper-elevation-1 {
+  box-shadow: 0px 0px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.paper-elevation-2 {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.outline {
+  outline: 1px solid #f00;
+}
+
+/* for common buttons */
+.brand-primary-btn {
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 3px;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  background: rgba(95, 25, 170);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.brand-primary-btn:disabled {
+  background: rgba(95, 25, 170, 0.5);
+  cursor: auto;
+}
+.brand-primaty-btn:hover {
+  background: rgba(95, 25, 170, 0.8);
+}
+
+@charset "UTF-8";
+* {
+  box-sizing: border-box;
+  color: #333;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: rgba(0, 184, 86);
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 16px;
+}
+
+.app-container {
+  max-width: 400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Paper */
+.paper-elevation-0,
+.paper-elevation-1,
+.paper-elevation-2 {
+  background: #fff;
+  border-radius: 3px;
+  padding: 16px;
+}
+
+.paper-elevation-0 {
+  box-shadow: none;
+}
+
+.paper-elevation-1 {
+  box-shadow: 0px 0px 1px -1px rgba(0, 0, 0, 0.2),
+    0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.paper-elevation-2 {
+  box-shadow: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
+    0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+}
+
+.outline {
+  outline: 1px solid #f00;
+}
+
+/* for common buttons */
+.brand-primary-btn {
+  display: block;
+  width: 100%;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 3px;
+  font-weight: 500;
+  border: none;
+  padding: 10px;
+  background: rgba(95, 25, 170);
+  transition: 0.3s;
+  cursor: pointer;
+}
+.brand-primary-btn:disabled {
+  background: rgba(95, 25, 170, 0.5);
+  cursor: auto;
+}
+.brand-primaty-btn:hover {
+  background: rgba(95, 25, 170, 0.8);
+}
+
+.card-variant-content {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 380px) {
+  .app-container {
+    max-width: 300px;
+  }
+}
+
+.card-variant-title {
+  font-weight: 500;
+  color: #fff;
+  padding: 20px 0;
+  margin: 0;
+}
+
+.card-variant-bocxes {
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+}
+.card-variant-km {
+  margin-bottom: 20px;
+}
+
+.title-content {
+  min-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+}
+.title-content img {
+  display: inline-block;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.link-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 100%;
+  overflow: hidden;
+}
+.link-content-title {
+  margin: 0;
+  padding: 0;
+  /* color: #00b856; */
+  font-weight: 600;
+  overflow: hidden;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.link-content-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  background: #5f19aa;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 14px;
+}
+.link-content-btn:hover {
+  background: rgba(95, 25, 170, 0.9);
+}
+
+.link-arrow {
+  display: inline-block;
+  position: relative;
+  left: 0;
+  margin-left: 5px;
+  width: 20px;
+  transition: 0.1s;
+}
+.link-content-btn:hover .link-arrow {
+  left: 5px;
+}
+
+/* support content */
+.support-content {
+  padding-top: 16px;
+  text-align: center;
+}
+
+.support-content img {
+  display: inline-block;
+  max-width: 100px;
+  margin-top: 10px;
+}
+
+.support-content p {
+  text-align: center;
+  color: #fff !important;
+  padding: 0;
+  margin: 0;
+}
+
+.visa-humo {
+  max-width: 100px !important;
+  height: 69px !important;
+}
