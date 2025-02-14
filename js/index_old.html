@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Сервис привязки карт корти милли от МДО "Хумо"</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="assets/css/screen2711.css" rel="stylesheet" media="screen">
+    <script src="assets/js/libs/jquery-2.0.0.min.js"></script>
+    <!--// <script src="js/interface2711.min.js">&nbsp;</script>-->
+    <script src="assets/js/libs/inputmask.js"></script>
+    <script src="assets/js/libs/jquery.inputmask.js"></script>
+    <script src="assets/js/index.js"></script>
+
+    <style>
+        @font-face {
+            font-family: GT-Walsheim-Black;
+            src: url("assets/css/GT-Walsheim-Black.otf") format("opentype");
+        }
+        @font-face {
+            font-family: GT-Walsheim-Bold;
+            src: url("assets/css/GT-Walsheim-Bold.otf") format("opentype");
+        }
+        @font-face {
+            font-family: GT-Walsheim-Regular;
+            src: url("assets/css/GT-Walsheim-Regular.otf") format("opentype");
+        }
+
+        .font-black {
+             font-family: GT-Walsheim-Black;
+        }
+
+        .font-bold {
+            font-family: GT-Walsheim-Bold;
+        }
+
+        .font-regular {
+            font-family: GT-Walsheim-Regular;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="wrapper font-regular">
+    <div class="content">
+        <!--section class="section section-main bg-cover"-->
+            <div class="container">
+                <div class="section-title text-center text-white">
+                    <!--h1><span>
+                           <strong>Мегафон</strong><br> Сервис привязки карт
+                    </span></h1-->
+                    <div style="margin-top: 7vh">
+                        <h4>
+                            Заполните поля форм и подтвердите </br>
+                            добавление карты с помощью SMS
+                        </h4>
+                    </div>
+                    <div style="display: none">
+                        <p>Заполните поля форм и подтвердите привязку карты с помощью SMS. <br> Принимаются карты "Корти милли" выпущенные всеми банками Таджикистана.</p>
+                        <p>Совершая привязку карты, Вы принимаете условия Публичной оферты <br> т тем самым соглашаетесь, что осуществляете транзакцию с остатка средств <br>
+                        на указанной карте и даете Распоряжение о переводе их Получателю</p>
+                    </div>
+                </div>
+                <div class="section-in ">
+                    <div class="form-transfer">
+                        <form method="POST" id="transfer_form" novalidate="novalidate">
+                            <div class="form-columns clearfix">
+                                <div class="column form-column-third attached" id="attached">
+                                    <fieldset class="form-in custom-style2">
+                                        <div>
+                                            <img class="success-image" src="assets/img/like.png">
+                                            <div class="h4 font-bold success-text" >Карта<br>добавлена</div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="column form-column-third" id="attach">
+                                    <fieldset class="form-in custom-style2">
+                                        <div align="center" class="h4 font-bold" style="color:#00b856">Данные карты</div>
+                                        <div class="column form-column-left">
+                                            <div  style="z-index: 300;" class="form-in" id="card_form">
+                                                <span id="error_span" style="display: none; position: absolute; width: 80%; color: red;"></span>
+                                                <img src="assets/img/kort-logo.png" alt="bank_logo" class="b-card__front-kort">
+                                                <div class="form-group group-1">
+                                                    <label class="control-label">
+                                                        <span id="sender_init_message" class="panNumber">Введите номер карты</span>
+                                                        <span id="sender_init_err_message" style="display: none; color: red;">Номер карты неверен</span>
+                                                    </label>
+                                                    <div class="controls clearfix">
+                                                        <div class="input span4">
+                                                            <input type="text" class="form-control -metrika-nokeys" autofocus="true" id="card_num" name="card_num" autocomplete="off" placeholder="••••  ••••  ••••  ••••" maxlength="22">
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group clearfix card-exp-group">
+                                                        <div >
+                                                            <span id="err_exp_date" style="display: none; color: red;">Неверно указан срок карты</span>
+                                                            <label class="control-label pull-left"><span class = "panNumber">Срок действия карты</span></label>
+                                                        </div>
+                                                        <div class="controls">
+                                                            <div class="input pull-right exp-time-input">
+                                                                <input type="text" id="exp_date" name="exp_date" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="5" onfocus="this.type='text'" autocomplete="off"> </div>
+                                                        </div>
+                                                    <div style="clear: both;"></div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="control-label"> <span id="sender_init_message">Введите ФИО держателя карты</span> </label>
+                                                    <div class="controls clearfix">
+                                                        <div class="input span4" style="font-size: 10px">
+                                                            <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control -metrika-nokeys" autofocus="true" id="card_holder" name="card_holder" autocomplete="off" placeholder="Держатель карты"> </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="confirm-group">
+
+                                                <div class="input pull-left">
+                                                    <input type="button" onclick="sendSMSOTP()" id="gsms" name="gsms" value="Получить код" class="btn btn-brand btn-block" style="background-color: #6d1d7c">
+                                                    <input type="button" onclick="verify()" id="send_data" name="send_data" value="Отправить" class="btn btn-brand btn-block right">
+                                                </div>
+                                                <div class="cvv-input sms-code pull-right " >
+                                                    <input type="password" id="otp" name="otp" placeholder="СМС код" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="5" onfocus="this.type='password'" autocomplete="off">
+                                                </div>
+                                                <div class="pull-right">
+                                                    <span onclick="sendSMSOTP()" id="resend_otp" style="display: none; cursor:pointer; text-decoration: underline; color:#04599D">Переотправить смс</span>
+                                                </div>
+                                                <div style="clear: both;"></div>
+                                                <div style="margin:0px -25px 0px -10px">
+                                                    <div align="center" style="margin-bottom: 10px; margin-top: 10px" width="100%">
+                                                        <small >Принимаются карты НПЦ "Корти милли" выпущенные в РТ</small>
+                                                    </div>
+                                                    <!--margin:10px -50px 0px -30px-->
+                                                    <div align="center" width="100%" >
+                                                        <small>Совершая оплату/перевод, вы принимаете условия Публичной оферты, и
+                                                            тем самым соглашаетесь, что осуществляете оплату/перевод с остатка
+                                                            cредств на указанной карте и даете Распоряжение о переводе их Получателю</small>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="card-back-div">
+                                                <div class="form-in" id="card_form_back">
+                                                    <div class="form-group group-1 card-back">
+                                                        <div class="black-line">
+                                                        </div>
+                                                        <div class="secure-code" style="margin-top: 25%; margin-left: 10px; margin-right: 35px">
+                                                            <div class="form-group clearfix card-exp-group">
+                                                                <div>
+                                                                    <span id="err_exp_date" style="display: none; color: red;"></span>
+                                                                    <label class="control-label pull-left"><span>CVV код <br> (Три цифры на <br>обороте карты)</span></label>
+                                                                </div>
+                                                                <div class="controls">
+                                                                    <div class="input pull-right cvv-input">
+                                                                        <input type="password" id="sender_cvv" name="sender_cvv" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="3" onfocus="this.type='password'" autocomplete="off"> </div>
+                                                                </div>
+                                                                <div style="clear: both;"></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!--
+                                        <div id="sender_bank" style="display: none;"> <img id="sender_bank_logo" src=""> </div> <img src="img/kort-logo.png" alt="bank_logo" class="b-card__front-kort">
+                                        <div class="form-group">
+                                            <label class="control-label"> <span id="sender_init_message">Введите номер карты</span> <span id="sender_init_err_message" style="display: none; color: red;">Номер карты неверен</span> </label>
+                                            <div class="controls clearfix">
+                                                <div class="input span4">
+                                                    <input type="text" class="form-control -metrika-nokeys" autofocus="true" id="card_num" name="card_num" autocomplete="off" placeholder="••••  ••••  ••••  ••••" maxlength="22"> </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="control-label"> <span id="sender_init_message">Введите ФИО держателя карты</span> </label>
+                                            <div class="controls clearfix">
+                                                <div class="input span4">
+                                                    <input oninput="this.value = this.value.toUpperCase()" type="text" class="form-control -metrika-nokeys" autofocus="true" id="card_holder" name="card_holder" autocomplete="off" placeholder="Держатель карты"> </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-groups clearfix">
+                                            <div class="form-group">
+                                                <div class="clearfix"> <span id="err_exp_date_month" style="display: none; color: red;">Неверно указан месяц</span> <span id="err_exp_date_year" style="display: none; color: red;">Неверно указан год</span>
+                                                    <label class="control-label pull-left">Срок действия карты</label>
+                                                    <label class="control-label pull-right"><span>CVV код</span>&nbsp; <span class="link-unstyled link-help" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Три цифры, указанные на оборотной стороне карты"><i class="icon-help">&nbsp;</i></span> </label>
+                                                </div>
+                                                <div class="controls clearfix">
+                                                    <div class="input span1">
+                                                        <input type="text" id="exp_date_month" name="exp_date_month" data-input-type="number" class="form-control inp-num inp-group2 -metrika-nokeys valid" maxlength="2" placeholder="ММ" aria-invalid="false"> </div>
+                                                    <div class="input span1"><span class="divider">/</span>
+                                                        <input type="text" id="exp_date_year" name="exp_date_year" data-input-type="number" class="form-control inp-num inp-group2 -metrika-nokeys valid" maxlength="2" placeholder="ГГ" aria-invalid="false"> </div>
+                                                    <div class="input span1 pull-right">
+                                                        <input type="password" id="sender_cvv" name="sender_cvv" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="4" onfocus="this.type='password'" autocomplete="off"> </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group clearfix" id="unchor">
+                                            <div class="form-group">
+                                                <div class="controls">
+                                                    <div class="input span2 pull-left">
+                                                        <input type="password" id="otp" name="otp" placeholder="СМС код" data-input-type="number" class="form-control inp-num -metrika-nokeys" maxlength="5" onfocus="this.type='password'" autocomplete="off"> </div>
+                                                </div>
+                                                <div class="input pull-right">
+                                                    <input type="button" onclick="sendSMSOTP()" id="gsms" name="gsms" value="Получить код" class="btn btn-brand btn-block right">
+                                                    <input type="button" onclick="verify()" id="send_data" name="send_data" value="Отправить" class="btn btn-brand btn-block right"> </div>
+                                            </div> <span id="error_span" style="display: none; color: red;"></span> <span onclick="sendSMSOTP()" id="resend_otp" style="display: none; text-decoration: underline; color:#04599D">Переотправить смс</span> </div>
+                                    -->
+                                    </fieldset>
+
+                                </div>
+                                <div class="my_footer">
+                                    <div align="center" style="color:#ffffff" class="footer_text">
+                                        <p style="font-size: 14px">Центр поддержки пользователей: 544 <br>www.humo.tj    |    office@humo.tj</p>
+                                    </div>
+                                    <div align="center" style="margin-top: 20px" class="footer_logo">
+                                        <img src="assets/img/humo_logo_white.png">
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <!--/section-->
+    </div>
+</div>
+
+<!--footer-->
+<!--<footer class="footer">
+    <div class="container text-center">
+        <div class="footer-sub">
+            <div class="footer-logo-block">
+                <div class="footer-logo" style="margin-top:40px;"> <span class="logo_humo"><a href="https://www.humo.tj" target="_blank" title="Humo" alt="Humo"><img src="img/logo_humo.png" class="logo-img" border="0"></a></span> </div>
+            </div>
+            <div class="copyright">Copyright 2018 attach-card.humo.tj
+                <br><span>Все права защищены</span></div>
+        </div>
+    </div>
+</footer>-->
+</body>
+
+</html>
